@@ -1,25 +1,40 @@
 ---
+import '../styles/global.css';
+
 interface Props {
   title?: string;
 }
 
 const { title = 'Martabak Purnama POS' } = Astro.props;
-import '../styles/global.css';
 ---
 
 <!doctype html>
 <html lang="id" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="Aplikasi Kasir Martabak Purnama (Idaman Mama Mertua)" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="theme-color" content="#f59e0b" />
-    <meta name="description" content="Martabak Purnama POS - Aplikasi Kasir Modern Offline-First" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#d97706" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Purnama POS" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
     <title>{title}</title>
   </head>
-  <body class="min-h-screen bg-slate-950 text-slate-100 flex flex-col antialiased selection:bg-brand-500 selection:text-white">
+  <body class="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans select-none overflow-x-hidden">
     <slot />
+
+    <script is:inline>
+      // Register PWA Service Worker
+      if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch((err) => {
+            console.log('SW registration failed:', err);
+          });
+        });
+      }
+    </script>
   </body>
 </html>
-
