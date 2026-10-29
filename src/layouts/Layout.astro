@@ -1,0 +1,25 @@
+---
+interface Props {
+  title?: string;
+}
+
+const { title = 'Martabak Purnama POS' } = Astro.props;
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="id" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#f59e0b" />
+    <meta name="description" content="Martabak Purnama POS - Aplikasi Kasir Modern Offline-First" />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen bg-slate-950 text-slate-100 flex flex-col antialiased selection:bg-brand-500 selection:text-white">
+    <slot />
+  </body>
+</html>
+

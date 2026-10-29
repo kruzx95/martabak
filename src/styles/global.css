@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-950 text-slate-100 antialiased font-sans select-none;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Print thermal styling */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #thermal-receipt-print, #thermal-receipt-print * {
+    visibility: visible;
+  }
+  #thermal-receipt-print {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 58mm;
+    margin: 0;
+    padding: 2mm;
+    font-size: 11px;
+    font-family: monospace;
+    color: black;
+    background: white;
+  }
+}
+
