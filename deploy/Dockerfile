@@ -22,3 +22,4 @@ COPY --from=builder /app/public ./public
 
 EXPOSE 4321
 CMD ["node", "./dist/server/entry.mjs"]
+

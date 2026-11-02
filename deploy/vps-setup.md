@@ -116,3 +116,4 @@ sudo certbot --nginx -d pos.domainanda.com
 2. Klik tombol menu browser -> **"Tambahkan ke Layar Utama" (Add to Home Screen)**.
 3. Aplikasi akan terinstal sebagai aplikasi mandiri (PWA) berlayar penuh tanpa bilah browser.
 4. Aplikasi siap digunakan secara **offline maupun online**.
+
